@@ -1,92 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mehak-e-Hifazat</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Playfair Display',serif;}
-body{color:#503838;overflow-x:hidden;}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;position:fixed;width:100%;top:0;z-index:10;background:rgba(255,255,255,0.3);backdrop-filter:blur(8px);}
-nav h1{font-family:'Noto Nastaliq Urdu',serif;font-size:2rem;color:#b05a77;}
-nav ul{list-style:none;display:flex;gap:2rem;}
-nav ul li a{text-decoration:none;color:#503838;font-weight:600;transition:.3s;}
-nav ul li a:hover{color:#b05a77;}
-.hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,#f8dbe2,#f9ede5,#fff6f4);
-  text-align:center;
-  padding:2rem;
-}
-.brand{
-  animation:fadeSlide 2.5s ease forwards;
-}
-@keyframes fadeSlide{
-  0%{opacity:0;transform:translateY(20px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-.brand-urdu{
-  font-family:'Noto Nastaliq Urdu',serif;
-  font-size:4rem;
-  color:#b05a77;
-  position:relative;
-}
-.brand-urdu::after{
-  content:"";
-  position:absolute;
-  bottom:-10px;left:50%;transform:translateX(-50%);
-  width:60px;height:3px;background:#b05a77;border-radius:2px;
-  animation:glow 3s infinite alternate;
-}
-@keyframes glow{from{opacity:.2;}to{opacity:1;}}
-.brand-eng{font-size:2rem;margin-top:.5rem;letter-spacing:2px;color:#503838;}
-.poetry{margin-top:1.5rem;font-family:'Noto Nastaliq Urdu',serif;font-size:1.5rem;color:#704a5a;}
-.buttons{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
-button{
-  padding:.7rem 1.5rem;border:none;border-radius:25px;
-  cursor:pointer;font-weight:600;background:#b05a77;color:white;
-  transition:.3s;
-}
-button:hover{background:#503838;}
-section{min-height:80vh;padding:5rem 2rem;text-align:center;}
-footer{background:#f8dbe2;padding:1rem;text-align:center;color:#503838;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehak Candles</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Nastaliq+Urdu&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f9e4d4, #fce9f1, #e6f0ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Brand Animation */
+    .brand {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .brand h1 {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 3.5rem;
+      color: #9b5d3b;
+      animation: glow 3s infinite alternate;
+    }
+
+    .brand h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #b47340;
+      letter-spacing: 2px;
+      margin-top: -10px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #c9915e, 0 0 10px #b6744c; }
+      to { text-shadow: 0 0 20px #e8b88b, 0 0 30px #f4cf9d; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Candle Image */
+    .candle-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      margin: 20px 0;
+      background: url('candle.jpg') center/cover no-repeat;
+      box-shadow: 0 0 20px rgba(255, 180, 130, 0.7);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Poetry Section */
+    .poetry {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.4rem;
+      color: #7a4a26;
+      width: 80%;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #d9a76a, #f4cf9d);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(245, 188, 123, 0.5);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #f4cf9d, #ffd8b4);
+      box-shadow: 0 0 20px rgba(255, 200, 150, 0.8);
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <h1>مہک-e-Hifazat</h1>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#impact">Impact</a></li>
-  </ul>
-</nav>
-
-<section class="hero" id="home">
   <div class="brand">
-    <div class="brand-urdu">مہک</div>
-    <div class="brand-eng">Hifazat</div>
+    <h1>مہک</h1>
+    <h2>Hifazat</h2>
   </div>
-  <p class="poetry">روشن ہے یہ مہک، جو حفاظت کی خوشبو پھیلاتی ہے</p>
+
+  <div class="candle-img"></div>
+
+  <div class="poetry">
+    "خوشبو جو دلوں تک جائے، روشنی جو یادیں جگائے<br>
+    مہک — حفاظت میں محبت کی کہانی سنائے"
+  </div>
+
   <div class="buttons">
-    <button onclick="window.open('#','_blank')">Order Now</button>
-    <button onclick="window.open('#','_blank')">Instagram</button>
-    <button onclick="window.open('#','_blank')">Facebook</button>
+    <button class="btn">Shop Now</button>
+    <button class="btn">Explore More</button>
   </div>
-</section>
-
-<section id="products"><h2>Our Products</h2><p>Beautifully scented candles coming soon...</p></section>
-<section id="about"><h2>About Mehak-e-Hifazat</h2><p>A fragrance born from care and calm.</p></section>
-<section id="impact"><h2>Our Impact</h2><p>Spreading serenity and safety through scent.</p></section>
-
-<footer>© 2025 Mehak-e-Hifazat | A fragrance of protection and peace.</footer>
-
 </body>
 </html>
+
