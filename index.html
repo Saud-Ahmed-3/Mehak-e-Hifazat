@@ -62,13 +62,13 @@
     /* --- Hero Section --- */
     .hero {
       height: 100vh;
-      background: url('your-candle.jpg') no-repeat center center/cover;
+      background: url('candle.jpg') no-repeat center center/cover;
       background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       flex-direction: column;
+      text-align: center;
       color: #fff;
       position: relative;
     }
@@ -86,27 +86,48 @@
     .hero-content {
       z-index: 2;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 80%;
     }
 
-    .hero h2 {
+    /* --- Fade Animations --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .poetry {
+      margin-top: 80px;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .poetry h2 {
       font-size: 2.2rem;
       font-weight: 600;
       line-height: 1.8;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
     }
 
-    .hero p {
+    .poetry p {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-top: 10px;
+      direction: ltr;
     }
 
-    /* --- Buttons --- */
     .buttons {
-      margin-top: 25px;
+      margin-bottom: 50px;
       display: flex;
       gap: 15px;
       justify-content: center;
       flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 2s;
     }
 
     .btn {
@@ -125,7 +146,6 @@
       color: #000;
     }
 
-    /* --- Footer --- */
     footer {
       position: absolute;
       bottom: 20px;
@@ -136,7 +156,6 @@
       z-index: 2;
     }
 
-    /* --- Responsive --- */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -147,7 +166,7 @@
         gap: 15px;
       }
 
-      .hero h2 {
+      .poetry h2 {
         font-size: 1.5rem;
       }
     }
@@ -169,13 +188,14 @@
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
-      <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
+      <div class="poetry">
+        <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
+        <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
+      </div>
 
       <div class="buttons">
-        <a href="https://www.instagram.com/mehak.e.hifazat" target="_blank" class="btn">Order Now</a>
-        <a href="https://instagram.com/mehak.e.hifazat" target="_blank" class="btn">Instagram</a>
-        <a href="https://facebook.com/yourbrandhandle" target="_blank" class="btn">Facebook</a>
+        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Order Now</a>
+        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Instagram</a>
       </div>
     </div>
 
