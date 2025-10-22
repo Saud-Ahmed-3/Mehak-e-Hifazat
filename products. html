@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مصنوعات — Mehak-e-Hifazat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar container">
+      <div class="right-nav">
+        <a href="index.html" class="nav-link">ہوم</a>
+        <a href="impact.html" class="nav-link">اثر</a>
+        <a href="about.html" class="nav-link">ہمارا قصّہ</a>
+      </div>
+      <div class="left-socials">
+        <a class="social" href="https://instagram.com/YOUR_IG_HANDLE" target="_blank">Instagram</a>
+        <a class="social" href="https://facebook.com/YOUR_FB_PAGE" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">ہماری مصنوعات</h1>
+    <p class="lead">3 رنگ، 3 خوشبوئیں — ہر ایک ہاتھ سے بنی اور خاص لیبل کے ساتھ۔</p>
+
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="assets/c1.jpg" alt="تابِ صبح">
+        <div class="prod-body">
+          <h3>تابِ صبح — Taab-e-Subh</h3>
+          <p class="poetic">خوشبو: چائے / Lemon-Tea notes</p>
+          <a class="btn small" href="https://instagram.com/YOUR_IG_HANDLE" target="_blank">آرڈر کریں</a>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="assets/c2.jpg" alt="شبِ نقرہ">
+        <div class="prod-body">
+          <h3>شبِ نقرہ — Shab-e-Neqrah</h3>
+          <p class="poetic">خوشبو: خشبو دار / Oud & Amber</p>
+          <a class="btn small" href="https://instagram.com/YOUR_IG_HANDLE" target="_blank">آرڈر کریں</a>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="assets/c3.jpg" alt="محفلِ حیا">
+        <div class="prod-body">
+          <h3>محفلِ حیا — Mehfil-e-Haya</h3>
+          <p class="poetic">خوشبو: گلابی ہلکی / Rose & Musk</p>
+          <a class="btn small" href="https://instagram.com/YOUR_IG_HANDLE" target="_blank">آرڈر کریں</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="tagline">مہک جو دلوں میں بسی رہے۔</p>
+        <p>© <span id="year-prod"></span> Mehak-e-Hifazat</p>
+      </div>
+      <div class="footer-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="impact.html">Impact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
