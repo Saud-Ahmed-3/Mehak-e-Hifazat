@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مہکِ حفاظت | Mehak-e-Hifazat</title>
 
+  <!-- Favicon pointing to landing page -->
+  <link rel="icon" href="https://saud-ahmed-3.github.io/Mehak-e-Hifazat/favicon.ico" type="image/x-icon">
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Instagram Icon CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-rOA1pC0Cz0+njFf+qU7+1Zl1D4U+ENxhU0P+5kM2GxZ/UEj3O0rX+2nfu7ojOAGGb5VZ40YB7x3+zU0x0F1rHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     * {
@@ -19,6 +25,7 @@
       font-family: 'Noto Nastaliq Urdu', serif;
       direction: rtl;
       overflow-x: hidden;
+      background: #000;
     }
 
     /* --- Navigation Bar --- */
@@ -70,7 +77,6 @@
       align-items: center;
       text-align: center;
       color: #fff;
-      font-family: 'Noto Nastaliq Urdu', serif;
     }
 
     /* Smooth background image as parallax */
@@ -147,31 +153,44 @@
       direction: ltr;
     }
 
+    /* --- Buttons below the candle --- */
     .buttons {
-      margin-bottom: 50px;
       display: flex;
+      flex-direction: column;
       gap: 15px;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 50px;
       opacity: 0;
       animation: fadeIn 2s ease-out forwards;
       animation-delay: 2s;
     }
 
-    .btn {
-      background: rgba(255, 255, 255, 0.9);
+    .btn-order {
+      background: rgba(255, 255, 255, 0.95);
       color: #333;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 40px;
+      font-size: 1.2rem;
       font-weight: bold;
+      text-decoration: none;
       font-family: 'Playfair Display', serif;
       transition: all 0.3s;
     }
 
-    .btn:hover {
+    .btn-order:hover {
       background: #ffd7a3;
       color: #000;
+    }
+
+    .btn-instagram {
+      font-size: 2rem;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .btn-instagram:hover {
+      color: #e1306c;
     }
 
     footer {
@@ -209,6 +228,15 @@
         height: 180px;
         margin: 30px 0;
       }
+
+      .btn-order {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+
+      .btn-instagram {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -230,16 +258,19 @@
     <div class="overlay"></div>
 
     <div class="hero-content">
+      <!-- Poetry -->
       <div class="poetry">
         <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
         <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
       </div>
 
+      <!-- Candle Glow -->
       <div class="glow"></div>
 
+      <!-- Buttons below the candle -->
       <div class="buttons">
-        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Order Now</a>
-        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Instagram</a>
+        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn-order">Order Now</a>
+        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn-instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
 
@@ -253,7 +284,7 @@
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY;
       const bg = document.querySelector('.hero-bg');
-      bg.style.transform = `translateY(${scroll * 0.3}px)`; // adjust speed (0.3) for smooth effect
+      bg.style.transform = `translateY(${scroll * 0.3}px)`;
     });
   </script>
 
