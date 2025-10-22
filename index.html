@@ -61,17 +61,30 @@
 
     /* --- Hero Section --- */
     .hero {
+      position: relative;
       height: 100vh;
-      background: url('your-candle.jpg') no-repeat center center/cover;
-      background-attachment: fixed;
+      overflow: hidden;
       display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       color: #fff;
-      position: relative;
-      overflow: hidden;
+      font-family: 'Noto Nastaliq Urdu', serif;
+    }
+
+    /* Smooth background image as parallax */
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%; /* slightly bigger for smooth scrolling */
+      background: url('your-candle.jpg') no-repeat center center;
+      background-size: cover;
+      transform: translateY(0);
+      transition: transform 0.2s ease-out;
+      z-index: 0;
     }
 
     .overlay {
@@ -86,45 +99,38 @@
 
     /* --- Candle Glow Effect --- */
     .glow {
-      position: absolute;
-      bottom: 40%;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
       width: 250px;
       height: 250px;
       background: radial-gradient(circle, rgba(255,223,150,0.5) 0%, rgba(255,200,120,0.2) 40%, transparent 70%);
       border-radius: 50%;
       filter: blur(50px);
       animation: flicker 3s ease-in-out infinite;
-      z-index: 1;
+      margin: 40px 0;
+      z-index: 2;
     }
 
     @keyframes flicker {
-      0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
-      50% { opacity: 0.4; transform: translateX(-50%) scale(1.1); }
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.1); }
     }
 
     /* --- Hero Content --- */
     .hero-content {
+      position: relative;
       z-index: 2;
-      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      height: 80%;
-    }
-
-    /* --- Fade Animations --- */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      justify-content: center;
+      width: 100%;
     }
 
     .poetry {
       margin-top: 80px;
       opacity: 0;
       animation: fadeIn 2s ease-out forwards;
+      max-width: 90%;
     }
 
     .poetry h2 {
@@ -178,6 +184,12 @@
       z-index: 2;
     }
 
+    /* --- Fade Animations --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -195,7 +207,7 @@
       .glow {
         width: 180px;
         height: 180px;
-        bottom: 45%;
+        margin: 30px 0;
       }
     }
   </style>
@@ -214,14 +226,16 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="overlay"></div>
-    <div class="glow"></div> <!-- ✨ New glowing light -->
 
     <div class="hero-content">
       <div class="poetry">
         <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
         <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
       </div>
+
+      <div class="glow"></div>
 
       <div class="buttons">
         <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Order Now</a>
@@ -233,6 +247,15 @@
       <p>© 2025 Mehak-e-Hifazat — مہک جو دلوں میں بسی رہے۔</p>
     </footer>
   </section>
+
+  <script>
+    // Smooth parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY;
+      const bg = document.querySelector('.hero-bg');
+      bg.style.transform = `translateY(${scroll * 0.3}px)`; // adjust speed (0.3) for smooth effect
+    });
+  </script>
 
 </body>
 </html>
