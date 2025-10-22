@@ -71,6 +71,7 @@
       text-align: center;
       color: #fff;
       position: relative;
+      overflow: hidden;
     }
 
     .overlay {
@@ -83,6 +84,27 @@
       z-index: 1;
     }
 
+    /* --- Candle Glow Effect --- */
+    .glow {
+      position: absolute;
+      bottom: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(255,223,150,0.5) 0%, rgba(255,200,120,0.2) 40%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      animation: flicker 3s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.4; transform: translateX(-50%) scale(1.1); }
+    }
+
+    /* --- Hero Content --- */
     .hero-content {
       z-index: 2;
       padding: 20px;
@@ -169,6 +191,12 @@
       .poetry h2 {
         font-size: 1.5rem;
       }
+
+      .glow {
+        width: 180px;
+        height: 180px;
+        bottom: 45%;
+      }
     }
   </style>
 </head>
@@ -187,6 +215,8 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="overlay"></div>
+    <div class="glow"></div> <!-- ✨ New glowing light -->
+
     <div class="hero-content">
       <div class="poetry">
         <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
