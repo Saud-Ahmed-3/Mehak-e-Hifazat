@@ -1,0 +1,16 @@
+document.addEventListener('DOMContentLoaded', function(){
+  const yearEls = ['year','year-prod','year-about','year-impact'];
+  const y = new Date().getFullYear();
+  yearEls.forEach(id => { const el = document.getElementById(id); if(el) el.textContent = y; });
+
+  // Optional: pause animation on hover over hero (for better readability)
+  const hero = document.querySelector('.hero');
+  if(hero){
+    hero.addEventListener('mouseenter', ()=> {
+      document.querySelectorAll('.poem-line').forEach(n => n.style.animationPlayState = 'paused');
+    });
+    hero.addEventListener('mouseleave', ()=> {
+      document.querySelectorAll('.poem-line').forEach(n => n.style.animationPlayState = 'running');
+    });
+  }
+});
