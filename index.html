@@ -9,7 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Noto Nastaliq Urdu', serif;
@@ -17,11 +21,12 @@
       overflow-x: hidden;
     }
 
+    /* --- Navigation Bar --- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       color: #fff;
       display: flex;
       justify-content: space-between;
@@ -31,11 +36,30 @@
       font-family: 'Playfair Display', serif;
     }
 
-    nav h1 { font-size:1.8rem; font-weight:600; }
-    nav ul { display:flex; list-style:none; gap:30px; }
-    nav ul li a { color:#fff; text-decoration:none; font-size:1rem; transition: color 0.3s; }
-    nav ul li a:hover { color:#ffd7a3; }
+    nav h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
 
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd7a3;
+    }
+
+    /* --- Hero Section --- */
     .hero {
       position: relative;
       height: 100vh;
@@ -46,60 +70,35 @@
       align-items: center;
       text-align: center;
       color: #fff;
+      font-family: 'Noto Nastaliq Urdu', serif;
     }
 
+    /* Smooth background image as parallax */
     .hero-bg {
       position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:120%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%; /* slightly bigger for smooth scrolling */
       background: url('your-candle.jpg') no-repeat center center;
       background-size: cover;
       transform: translateY(0);
       transition: transform 0.2s ease-out;
-      z-index:0;
+      z-index: 0;
     }
 
     .overlay {
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.45);
-      z-index:1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
     }
 
-    .hero-content {
-      position: relative;
-      z-index:2;
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width:100%;
-    }
-
-    .poetry {
-      margin-bottom: 50px;
-      max-width: 90%;
-      animation: fadeIn 2s ease-out forwards;
-    }
-
-    .poetry h2 {
-      font-size:2.2rem;
-      font-weight:600;
-      line-height:1.8;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    }
-
-    .poetry p {
-      font-family: 'Playfair Display', serif;
-      font-size:1.1rem;
-      margin-top:10px;
-      direction: ltr;
-    }
-
-    .candle-glow {
+    /* --- Candle Glow Effect --- */
+    .glow {
       position: relative;
       width: 250px;
       height: 250px;
@@ -107,81 +106,109 @@
       border-radius: 50%;
       filter: blur(50px);
       animation: flicker 3s ease-in-out infinite;
-      margin-bottom: 60px;
-      z-index:2;
+      margin: 40px 0;
+      z-index: 2;
     }
 
     @keyframes flicker {
-      0%,100% { opacity:0.8; transform: scale(1); }
-      50% { opacity:0.4; transform: scale(1.1); }
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.1); }
     }
 
-    .btn-order {
-      background: rgba(255,255,255,0.9);
-      color:#333;
-      padding:15px 35px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:bold;
+    /* --- Hero Content --- */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .poetry {
+      margin-top: 80px;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      max-width: 90%;
+    }
+
+    .poetry h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.8;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .poetry p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      direction: ltr;
+    }
+
+    .buttons {
+      margin-bottom: 50px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 2s;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
       font-family: 'Playfair Display', serif;
       transition: all 0.3s;
-      font-size:1.3rem;
-      margin-bottom:20px;
-      opacity:0;
-      transform: translateY(30px);
     }
 
-    .btn-order.visible {
-      opacity:1;
-      transform: translateY(0);
-      transition: all 0.8s ease-out;
-    }
-
-    .icon-buttons {
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      opacity:0;
-      transform: translateY(30px);
-    }
-
-    .icon-buttons.visible {
-      opacity:1;
-      transform: translateY(0);
-      transition: all 0.8s ease-out;
-    }
-
-    .icon-buttons a img {
-      width:50px;
-      height:50px;
-      object-fit: contain;
-      transition: transform 0.3s;
-    }
-
-    .icon-buttons a img:hover {
-      transform: scale(1.1);
+    .btn:hover {
+      background: #ffd7a3;
+      color: #000;
     }
 
     footer {
-      position:absolute;
-      bottom:20px;
-      width:100%;
-      text-align:center;
-      color:#eee;
-      font-size:0.9rem;
-      z-index:2;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #eee;
+      font-size: 0.9rem;
+      z-index: 2;
     }
 
+    /* --- Fade Animations --- */
     @keyframes fadeIn {
-      from { opacity:0; transform: translateY(20px); }
-      to { opacity:1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media(max-width:768px){
-      .poetry h2 { font-size:1.5rem; }
-      .candle-glow { width:180px; height:180px; margin-bottom:40px; }
-      .btn-order { padding:12px 25px; font-size:1.1rem; }
-      .icon-buttons a img { width:40px; height:40px; }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      .poetry h2 {
+        font-size: 1.5rem;
+      }
+
+      .glow {
+        width: 180px;
+        height: 180px;
+        margin: 30px 0;
+      }
     }
   </style>
 </head>
@@ -203,26 +230,16 @@
     <div class="overlay"></div>
 
     <div class="hero-content">
-      <!-- Poetry Above Candle -->
       <div class="poetry">
         <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
         <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
       </div>
 
-      <!-- Candle Glow -->
-      <div class="candle-glow"></div>
+      <div class="glow"></div>
 
-      <!-- Order Now Button -->
-      <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn-order">Order Now</a>
-
-      <!-- Icons Below Order Now -->
-      <div class="icon-buttons">
-        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank">
-          <img src="insta-icon.jpg" alt="Instagram">
-        </a>
-        <a href="https://saud-ahmed-3.github.io/Mehak-e-Hifazat/" target="_blank">
-          <img src="website-icon.jpg" alt="Website">
-        </a>
+      <div class="buttons">
+        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Order Now</a>
+        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Instagram</a>
       </div>
     </div>
 
@@ -232,27 +249,12 @@
   </section>
 
   <script>
-    // Smooth parallax background
+    // Smooth parallax effect on scroll
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY;
       const bg = document.querySelector('.hero-bg');
-      bg.style.transform = `translateY(${scroll * 0.3}px)`;
+      bg.style.transform = `translateY(${scroll * 0.3}px)`; // adjust speed (0.3) for smooth effect
     });
-
-    // Fade up on scroll for button and icons
-    const observerOptions = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    const btn = document.querySelector('.btn-order');
-    const icons = document.querySelector('.icon-buttons');
-    observer.observe(btn);
-    observer.observe(icons);
   </script>
 
 </body>
