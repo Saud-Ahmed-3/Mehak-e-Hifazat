@@ -107,7 +107,7 @@
       border-radius: 50%;
       filter: blur(50px);
       animation: flicker 3s ease-in-out infinite;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       z-index:2;
     }
 
@@ -127,17 +127,28 @@
       transition: all 0.3s;
       font-size:1.3rem;
       margin-bottom:20px;
+      opacity:0;
+      transform: translateY(30px);
     }
 
-    .btn-order:hover {
-      background:#ffd7a3;
-      color:#000;
+    .btn-order.visible {
+      opacity:1;
+      transform: translateY(0);
+      transition: all 0.8s ease-out;
     }
 
     .icon-buttons {
       display:flex;
       gap:20px;
       justify-content:center;
+      opacity:0;
+      transform: translateY(30px);
+    }
+
+    .icon-buttons.visible {
+      opacity:1;
+      transform: translateY(0);
+      transition: all 0.8s ease-out;
     }
 
     .icon-buttons a img {
@@ -168,7 +179,7 @@
 
     @media(max-width:768px){
       .poetry h2 { font-size:1.5rem; }
-      .candle-glow { width:180px; height:180px; margin-bottom:30px; }
+      .candle-glow { width:180px; height:180px; margin-bottom:40px; }
       .btn-order { padding:12px 25px; font-size:1.1rem; }
       .icon-buttons a img { width:40px; height:40px; }
     }
@@ -227,6 +238,22 @@
       const bg = document.querySelector('.hero-bg');
       bg.style.transform = `translateY(${scroll * 0.3}px)`;
     });
+
+    // Fade up on scroll for button and icons
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    const btn = document.querySelector('.btn-order');
+    const icons = document.querySelector('.icon-buttons');
+    observer.observe(btn);
+    observer.observe(icons);
   </script>
+
 </body>
 </html>
