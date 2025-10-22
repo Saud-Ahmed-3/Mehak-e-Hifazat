@@ -1,0 +1,110 @@
+:root{
+  --bg:#FBF7F3;
+  --muted:#7a5f49;
+  --accent:#b88b6f;
+  --dark:#2b2b2b;
+  --card:#fffaf7;
+  --glass: rgba(255,255,255,0.6);
+  --container:1100px;
+  --radius:14px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Cormorant Garamond', 'Playfair Display', serif;background:var(--bg);color:var(--dark);direction:rtl}
+img{max-width:100%;height:auto;display:block}
+.container{max-width:var(--container);margin:0 auto;padding:2rem}
+
+/* Header / Topbar */
+.site-header{position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));border-bottom:1px solid rgba(0,0,0,0.03);z-index:60}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:1rem}
+.right-nav .nav-link{margin-left:1rem;color:var(--muted);font-weight:600}
+.left-socials .social{margin-right:0.6rem;padding:0.35rem 0.6rem;border-radius:8px;border:1px solid rgba(0,0,0,0.04);font-size:0.95rem}
+
+/* Hero */
+.hero{min-height:72vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:2rem 0}
+.hero-inner{width:100%;display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
+
+/* Poetry layer (behind candle) */
+.poetry-layer{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;align-items:flex-end;padding-right:10%;
+  z-index:1;pointer-events:none;
+}
+.poem-line{
+  font-size:1.6rem;white-space:nowrap;font-family:'Noto Nastaliq Urdu','Playfair Display', serif; /* replace font if you host Nastaliq */
+  color:rgba(255,255,255,0.95);text-shadow:0 8px 30px rgba(0,0,0,0.6);font-weight:600;
+  transform:translateX(100%); /* start off-screen right */
+  opacity:0.98;
+  /* animation applied via specific classes with different delays */
+}
+
+/* Candle on top */
+.candle-wrap{z-index:3;position:relative;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.candle-img{width:320px;max-width:60vw;filter:drop-shadow(0 30px 50px rgba(11,10,8,0.35));}
+
+/* CTA */
+.hero-cta{margin-top:1.25rem;z-index:4}
+.btn{display:inline-block;padding:0.6rem 1rem;border-radius:10px;background:var(--accent);color:#fff;transition:all .2s ease;margin-left:0.6rem}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--dark)}
+.btn.small{padding:0.4rem 0.6rem;font-size:0.9rem}
+
+/* Featured cards */
+.featured{margin-top:2rem}
+.section-title{font-size:1.4rem;margin-bottom:1rem;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--card);padding:1rem;border-radius:12px;text-align:center;box-shadow:0 8px 30px rgba(11,10,8,0.04)}
+
+/* Team */
+.team{margin-top:2.3rem}
+.team-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1rem;align-items:start}
+.team-member{text-align:center}
+.team-member img{width:120px;height:120px;object-fit:cover;border-radius:999px;border:6px solid #fff;box-shadow:0 8px 30px rgba(11,10,8,0.08)}
+.tm-name{margin-top:0.6rem;font-weight:700}
+.tm-role{color:var(--muted);font-size:0.95rem}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(0,0,0,0.04);padding:1.25rem 0;margin-top:2rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-right .social-handle{margin-left:1rem;color:var(--muted);font-weight:600}
+
+/* Products page */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem}
+.product-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(11,10,8,0.05)}
+.prod-body{padding:1rem;text-align:right}
+
+/* About / Impact */
+.lead{color:var(--muted);margin-bottom:1rem}
+.impact-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+
+/* Responsive */
+@media(max-width:1100px){ .team-grid{grid-template-columns:repeat(4,1fr)} .cards{grid-template-columns:repeat(2,1fr)} .products-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:700px){ .team-grid{grid-template-columns:repeat(2,1fr)} .poem-line{font-size:1.1rem} .candle-img{width:260px} .cards{grid-template-columns:1fr} .products-grid{grid-template-columns:1fr} .topbar{flex-direction:column;align-items:flex-end} }
+
+/* --- Animation definitions --- */
+/* main slide animation: move fully across (start at 100% to -120% so it fully exits) */
+@keyframes slide-right-to-left {
+  0% { transform: translateX(100%); opacity:0.98; }
+  8% { opacity:1; }
+  45% { transform: translateX(-10%); opacity:0.98; } /* near center behind candle */
+  85% { transform: translateX(-120%); opacity:0.95; }
+  100% { transform: translateX(-120%); opacity:0; }
+}
+
+/* apply staggered animation durations/delays for each line */
+.poem-line { animation-name: slide-right-to-left; animation-duration: 12s; animation-timing-function: linear; animation-iteration-count: infinite; }
+
+/* Stagger delays so lines follow each other */
+.line-1 { animation-delay: 0s; }
+.line-2 { animation-delay: 2s; }
+.line-3 { animation-delay: 4s; }
+.line-4 { animation-delay: 6s; }
+.line-5 { animation-delay: 8s; }
+.line-6 { animation-delay: 10s; }
+
+/* Slight size differences for depth illusion */
+.line-1{font-size:1.9rem}
+.line-2{font-size:1.6rem}
+.line-3{font-size:1.7rem}
+.line-4{font-size:1.5rem}
+.line-5{font-size:1.4rem}
+.line-6{font-size:1.3rem}
