@@ -3,66 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مہک e hifazat</title>
+  <title>About — مہک e hifazat</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header class="navbar">
-    <h1 class="logo">مہک e <span>hifazat</span></h1>
-    <nav>
-      <a href="products.html">Products</a>
-      <a href="impact.html">Impact</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
+<header class="navbar">
+  <h1 class="logo">مہک e <span>hifazat</span></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="impact.html">Impact</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <img src="candle.jpg" alt="Mehak e Hifazat Candle" class="candle-img">
-
-    <div class="poetry-container">
-      <p class="poetry-line">مہک جو دل کو چھو جائے، وہی حفاظت کی خوشبو ہے۔</p>
-      <p class="poetry-line">روشنی نہیں، احساس ہے یہ — موم کی نرم چمک میں چھپا۔</p>
-      <p class="poetry-line">وقت رک جائے، خوشبو بول اُٹھے۔</p>
-      <p class="poetry-line">دلوں کی خاموشیوں میں جلتا ایک دیا۔</p>
-      <p class="poetry-line">یہ موم نہیں، خواب ہیں جو پگھلتے ہیں۔</p>
-      <p class="poetry-line">مہکِ حفاظت — ہر سانس میں ایک نرمی۔</p>
-    </div>
-  </section>
-
-  <section class="footer">
-    <div class="socials">
-      <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank">Instagram</a> |
-      <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank">Facebook</a>
-    </div>
-    <div class="team">
-      <h3>Our Team</h3>
-      <div class="team-grid">
-        <div class="member"><img src="member1.jpg"><p>Ahmed — Founder</p></div>
-        <div class="member"><img src="member2.jpg"><p>Sarah — Designer</p></div>
-        <div class="member"><img src="member3.jpg"><p>Ali — Production</p></div>
-        <div class="member"><img src="member4.jpg"><p>Hira — Marketing</p></div>
-        <div class="member"><img src="member5.jpg"><p>Rizwan — Sales</p></div>
-        <div class="member"><img src="member6.jpg"><p>Ayesha — Logistics</p></div>
-        <div class="member"><img src="member7.jpg"><p>Fatima — Photography</p></div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const lines = document.querySelectorAll('.poetry-line');
-    let index = 0;
-
-    function showPoetry() {
-      lines.forEach(l => l.style.opacity = 0);
-      lines[index].style.opacity = 1;
-      lines[index].style.animation = 'slideAcross 10s linear';
-      index = (index + 1) % lines.length;
-    }
-    showPoetry();
-    setInterval(showPoetry, 7000);
-  </script>
+<section class="hero" style="margin-top:100px; text-align:center;">
+  <h2>About Our Candles</h2>
+  <p>Each Mehak e Hifazat candle is hand-poured with premium soy wax, natural oils, and love. Our jars are reusable, our fragrances inspired by quiet nights and Urdu poetry — made for those who find peace in fragrance and light.</p>
+</section>
 
 </body>
 </html>
