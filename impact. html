@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اثر — Mehak-e-Hifazat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar container">
+      <div class="right-nav">
+        <a href="index.html" class="nav-link">ہوم</a>
+        <a href="products.html" class="nav-link">مصنوعات</a>
+        <a href="about.html" class="nav-link">ہمارا قصّہ</a>
+      </div>
+      <div class="left-socials">
+        <a class="social" href="https://instagram.com/YOUR_IG_HANDLE" target="_blank">Instagram</a>
+        <a class="social" href="https://facebook.com/YOUR_FB_PAGE" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container impact-page">
+    <h1 class="section-title">ہمارا اثر</h1>
+    <p class="lead">ہماری کوششیں ماحولیاتی اور سماجی دونوں طرح کے اثرات کے لیے ہیں — پائیدار مواد، مقامی کاریگروں کی حمایت، اور کمیونٹی بیداری۔</p>
+
+    <div class="impact-list">
+      <div class="impact-item">
+        <h3>پائیداری</h3>
+        <p>ری سائیکل ایبل جار اور پائیدار پیکنگ، کم فضلہ اور صاف جلنے والی ویکس۔</p>
+      </div>
+
+      <div class="impact-item">
+        <h3>مقامی روزگار</h3>
+        <p>ہمارا مینوفیکچرنگ مقامی ہے — کاریگر، لیبلنگ، اور پیکنگ میں مقامی ہنر شامل ہے۔</p>
+      </div>
+
+      <div class="impact-item">
+        <h3>چیریٹی پارٹنرشپ</h3>
+        <p>ہر مہینے کے منتخب سیلز کا حصہ مقامی فلاحی اداروں کو دیا جاتا ہے۔</p>
+      </div>
+    </div>
+
+    <a class="btn" href="index.html">واپس جائیں</a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="tagline">مہک جو دلوں میں بسی رہے۔</p>
+        <p>© <span id="year-impact"></span> Mehak-e-Hifazat</p>
+      </div>
+      <div class="footer-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="impact.html">Impact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
