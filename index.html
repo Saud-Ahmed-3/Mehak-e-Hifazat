@@ -15,10 +15,16 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Noto Nastaliq Urdu', serif;
       direction: rtl;
       overflow-x: hidden;
+      background-color: #1a1a1a;
+      color: #fff;
     }
 
     /* --- Navigation Bar --- */
@@ -34,11 +40,11 @@
       padding: 15px 40px;
       z-index: 10;
       font-family: 'Playfair Display', serif;
+      backdrop-filter: blur(10px);
     }
 
     nav h1 {
       font-size: 1.8rem;
-      letter-spacing: 1px;
       font-weight: 600;
     }
 
@@ -70,16 +76,14 @@
       align-items: center;
       text-align: center;
       color: #fff;
-      font-family: 'Noto Nastaliq Urdu', serif;
     }
 
-    /* Smooth background image as parallax */
     .hero-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 120%; /* slightly bigger for smooth scrolling */
+      height: 120%;
       background: url('your-candle.jpg') no-repeat center center;
       background-size: cover;
       transform: translateY(0);
@@ -97,25 +101,6 @@
       z-index: 1;
     }
 
-    /* --- Candle Glow Effect --- */
-    .glow {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, rgba(255,223,150,0.5) 0%, rgba(255,200,120,0.2) 40%, transparent 70%);
-      border-radius: 50%;
-      filter: blur(50px);
-      animation: flicker 3s ease-in-out infinite;
-      margin: 40px 0;
-      z-index: 2;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 0.8; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.1); }
-    }
-
-    /* --- Hero Content --- */
     .hero-content {
       position: relative;
       z-index: 2;
@@ -123,7 +108,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
     }
 
     .poetry {
@@ -145,6 +129,23 @@
       font-size: 1.1rem;
       margin-top: 10px;
       direction: ltr;
+    }
+
+    .glow {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(255,223,150,0.5) 0%, rgba(255,200,120,0.2) 40%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      animation: flicker 3s ease-in-out infinite;
+      margin: 40px 0;
+      z-index: 2;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.1); }
     }
 
     .buttons {
@@ -175,13 +176,66 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
       text-align: center;
       color: #eee;
       font-size: 0.9rem;
-      z-index: 2;
+      margin-top: 50px;
+      padding-bottom: 20px;
+    }
+
+    /* --- Section Styling --- */
+    section {
+      padding: 100px 30px;
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #ffd7a3;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #f3f3f3;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      color: #ffd7a3;
     }
 
     /* --- Fade Animations --- */
@@ -195,19 +249,19 @@
         flex-direction: column;
         padding: 10px;
       }
-
       nav ul {
         gap: 15px;
       }
-
       .poetry h2 {
         font-size: 1.5rem;
       }
-
       .glow {
         width: 180px;
         height: 180px;
         margin: 30px 0;
+      }
+      section {
+        padding: 60px 20px;
       }
     }
   </style>
@@ -218,9 +272,9 @@
   <nav>
     <h1>مہکِ حفاظت</h1>
     <ul>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Impact</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
   </nav>
 
@@ -238,22 +292,60 @@
       <div class="glow"></div>
 
       <div class="buttons">
-        <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Order Now</a>
+        <a href="#products" class="btn">Explore Products</a>
         <a href="https://www.instagram.com/mehak.e.hifazat?igsh=MXczYmN3MDM1NXA4ZQ==" target="_blank" class="btn">Instagram</a>
       </div>
     </div>
-
-    <footer>
-      <p>© 2025 Mehak-e-Hifazat — مہک جو دلوں میں بسی رہے۔</p>
-    </footer>
   </section>
 
+  <!-- Products Section -->
+  <section id="products">
+    <h2>ہماری خوشبودار موم بتیاں</h2>
+    <p>Each candle is poured with love — inspired by Urdu poetry, nostalgia, and elegance.</p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="rose-candle.jpg" alt="Rose Candle">
+        <h3>گلابی مہک</h3>
+        <p>Soft rose fragrance capturing timeless romance.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="oud-candle.jpg" alt="Oud Candle">
+        <h3>عُود کی خوشبو</h3>
+        <p>Deep, luxurious aroma blending warmth and mystery.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="vanilla-candle.jpg" alt="Vanilla Candle">
+        <h3>میٹھا لمس</h3>
+        <p>Gentle vanilla scent that calms your soul.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section id="impact">
+    <h2>ہمارا اثر</h2>
+    <p>With every Mehak-e-Hifazat candle, we light more than a wick — we ignite hope. A portion of every purchase supports women artisans and local shelters in Pakistan.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>ہمارا تعارف</h2>
+    <p>Mehak-e-Hifazat is a heartfelt venture born from love, resilience, and creativity. Each fragrance tells a story — of safety, warmth, and the beauty of Urdu expression. Crafted for those who seek peace in the gentle flicker of a flame.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Mehak-e-Hifazat — مہک جو دلوں میں بسی رہے۔</p>
+  </footer>
+
   <script>
-    // Smooth parallax effect on scroll
+    // Parallax scroll effect for hero background
     window.addEventListener('scroll', () => {
       const scroll = window.scrollY;
       const bg = document.querySelector('.hero-bg');
-      bg.style.transform = `translateY(${scroll * 0.3}px)`; // adjust speed (0.3) for smooth effect
+      bg.style.transform = `translateY(${scroll * 0.3}px)`;
     });
   </script>
 
