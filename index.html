@@ -1,266 +1,202 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehak-e-Hifazat | مہکِ حفاظت</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehak-e-Hifazat</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* --------- Base Reset --------- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: 'Playfair Display', serif; color: #fff; }
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      font-family: 'Playfair Display', serif;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      color: #333;
-    }
+/* --------- Fixed Background Image --------- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('candle-bg.jpg') center/cover no-repeat;
+  z-index: -1;
+}
 
-    /* --- Fixed Background --- */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('your-candle.jpg') center center / cover no-repeat;
-      z-index: -2;
-    }
+/* --------- Navbar --------- */
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex; justify-content: flex-end; align-items: center;
+  background: rgba(0,0,0,0.6);
+  padding: 15px 40px;
+  z-index: 100;
+}
+nav a {
+  color: #fff;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #f9d5e5; }
 
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.35);
-      z-index: -1;
-    }
+/* --------- Hero Section --------- */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
 
-    /* --- Navigation Bar --- */
-    nav {
-      position: fixed;
-      top: 0; width: 100%;
-      background: rgba(0,0,0,0.5);
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 100;
-      backdrop-filter: blur(6px);
-    }
-    nav h1 {
-      font-family: 'Noto Nastaliq Urdu', serif;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover { color: #ffd7a3; }
+/* Urdu Poetry */
+.poetry {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 2.4rem;
+  line-height: 1.8;
+  margin-top: 120px;   /* prevent overlap with navbar */
+  opacity: 0;
+  animation: fadeInUp 2s ease-out forwards;
+}
 
-    /* --- Hero Section --- */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      animation: fadeIn 2s ease-in;
-    }
+/* English Tagline */
+header p {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 3s ease-out forwards;
+}
 
-    .hero h2 {
-      font-family: 'Noto Nastaliq Urdu', serif;
-      font-size: 2.3rem;
-      line-height: 1.8;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-    }
-    .hero p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      margin-top: 10px;
-    }
+/* Buttons */
+.btn-container {
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeInUp 3.5s ease-out forwards;
+}
+.btn-container a {
+  background: #fff;
+  color: #333;
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-container a:hover {
+  background: #f9d5e5;
+  transform: scale(1.05);
+}
 
-    .glow {
-      width: 250px; height: 250px;
-      background: radial-gradient(circle, rgba(255,223,150,0.5) 0%, rgba(255,200,120,0.2) 40%, transparent 70%);
-      border-radius: 50%;
-      filter: blur(50px);
-      animation: flicker 3s ease-in-out infinite;
-      margin: 40px 0;
-    }
+/* --------- Key Animations --------- */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-    @keyframes flicker {
-      0%,100% { opacity: 0.8; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.1); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* --------- Scroll Fade Setup --------- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+/* --------- Section Styling --------- */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+}
 
-    .btn {
-      background: rgba(255,255,255,0.9);
-      color: #333;
-      padding: 10px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: 'Playfair Display', serif;
-      transition: all 0.3s;
-    }
-    .btn:hover { background: #ffd7a3; color: #000; }
+#about { background: rgba(255,255,255,0.85); color: #222; }
+#products { background: rgba(249,213,229,0.85); color: #333; }
 
-    footer {
-      color: #eee;
-      text-align: center;
-      margin-top: 60px;
-      font-size: 0.9rem;
-    }
+/* Light Golden Impact Section */
+#impact {
+  background: rgba(255, 235, 200, 0.9);
+  box-shadow: inset 0 0 80px rgba(255, 200, 120, 0.3);
+  color: #222;
+}
 
-    /* --- Section Styling --- */
-    section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      transition: background 0.6s ease;
-    }
-
-    #about { background: rgba(255,255,255,0.85); }
-    #products { background: rgba(249,213,229,0.85); } /* pink */
-    #impact { background: rgba(205,239,253,0.85); }   /* sky blue */
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    section p {
-      max-width: 700px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    /* --- Product Grid --- */
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .product {
-      background: rgba(255,255,255,0.9);
-      border-radius: 15px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .product:hover { transform: translateY(-8px); }
-
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .product h3 { margin-bottom: 10px; }
-
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 1.7rem; }
-      .glow { width: 180px; height: 180px; }
-      section { padding: 60px 15px; }
-    }
-  </style>
+/* --------- Footer --------- */
+footer {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+</style>
 </head>
 
 <body>
-
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav>
-    <h1>مہکِ حفاظت</h1>
-    <ul dir="ltr">
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#impact">Impact</a></li>
-    </ul>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#impact">Impact</a>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h2>خوشبو جو دل کو چھو جائے —<br> مہکِ حفاظت، ایک احساس، ایک روشنی۔</h2>
-    <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
-    <div class="glow"></div>
-    <div class="buttons">
-      <a href="#products" class="btn">Explore Scents</a>
-      <a href="https://www.instagram.com/mehak.e.hifazat" target="_blank" class="btn">Instagram</a>
+  <header>
+    <div class="poetry">
+      خوشبو جودل کو چھو جائے — <br>
+      مہکِ حفاظت، ایک احساس، ایک روشنی —
     </div>
-    <footer>© 2025 Mehak-e-Hifazat — A fragrance that lingers in hearts</footer>
-  </section>
+    <p>Discover handcrafted scented candles inspired by timeless Urdu romance.</p>
+    <div class="btn-container">
+      <a href="#">Instagram</a>
+      <a href="#products">Explore Scents</a>
+    </div>
+  </header>
 
   <!-- About Section -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Mehak-e-Hifazat brings together art, emotion, and fragrance. Each candle tells a story — inspired by warmth, safety, and poetic nostalgia. Our mission is to create scents that connect hearts and memories, wrapped in elegance and care.</p>
+  <section id="about" data-animate>
+    <h2>About Mehak-e-Hifazat</h2>
+    <p>Each candle embodies a story of love and serenity. Inspired by poetic Urdu expression and hand-poured with precision, our creations evoke warmth and nostalgia.</p>
   </section>
 
   <!-- Products Section -->
-  <section id="products">
+  <section id="products" data-animate>
     <h2>Our Scents</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="lavender.jpg" alt="Lavender Candle">
-        <h3>Lavender</h3>
-        <p>Soft floral aroma for peaceful evenings and serene spaces.</p>
-      </div>
-
-      <div class="product">
-        <img src="lemon.jpg" alt="Lemon Candle">
-        <h3>Lemon</h3>
-        <p>Fresh citrus burst to uplift moods and refresh your mind.</p>
-      </div>
-
-      <div class="product">
-        <img src="indian-origin.jpg" alt="Indian Origin Candle">
-        <h3>Indian Origin</h3>
-        <p>A soulful fusion of spice and warmth — essence of heritage.</p>
-      </div>
-    </div>
+    <p>Lavender — calming and elegant.<br>
+       Lemon — refreshing and bright.<br>
+       Indian Origin — rich, earthy, and soulful.</p>
   </section>
 
   <!-- Impact Section -->
-  <section id="impact">
+  <section id="impact" data-animate>
     <h2>Our Impact</h2>
-    <p>Each Mehak-e-Hifazat candle is crafted using eco-friendly wax and sustainable packaging. We support local artisans and empower women through small-scale candle-making — because every glow should spread warmth, not waste.</p>
+    <p>We use eco-friendly soy wax and recyclable packaging. Every candle contributes to sustainable craftsmanship that honors nature and culture.</p>
   </section>
 
+  <!-- Footer -->
+  <footer>
+    Mehak-e-Hifazat — A fragrance that lingers in hearts © 2025
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const elements = document.querySelectorAll("[data-animate]");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    elements.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
