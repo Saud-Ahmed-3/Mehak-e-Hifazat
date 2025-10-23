@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مہکِ حفاظت | مصنوعات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Nastaliq Urdu', serif;
+      direction: rtl;
+      color: #fff;
+      background: url('candle-bg.jpg') no-repeat center center/cover;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 10;
+      font-family: 'Playfair Display', serif;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
+    nav ul li a:hover { color: #ffd7a3; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      padding: 120px 20px 60px;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .product {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .product h3 {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      color: #ffd7a3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>مہکِ حفاظت</h1>
+    <ul>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="impact.html">Impact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>ہماری خوشبوئیں — دل سے بنی، محبت سے مہکی</h2>
+
+    <div class="products">
+      <div class="product">
+        <img src="rose-candle.jpg" alt="Rose Candle">
+        <h3>گلِ محبت</h3>
+        <p>خوشبو جو یادوں کو جگائے — نرم، میٹھی اور پُرکشش۔</p>
+      </div>
+
+      <div class="product">
+        <img src="oud-candle.jpg" alt="Oud Candle">
+        <h3>مہکِ عود</h3>
+        <p>گہرے احساسات، روایتی خوشبو — وقار کی علامت۔</p>
+      </div>
+
+      <div class="product">
+        <img src="vanilla-candle.jpg" alt="Vanilla Candle">
+        <h3>چاندنی ونیلا</h3>
+        <p>پُرسکون راتوں جیسی مہک — نرمی اور سکون۔</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Mehak-e-Hifazat — خوشبو جو دلوں میں بسی رہے۔
+  </footer>
+
+</body>
+</html>
